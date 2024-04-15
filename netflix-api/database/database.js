@@ -8,7 +8,7 @@ module.exports.connection = async () => {
     await mongoose.connect("mongodb+srv://vishal:vishalpote@netflix.hj3atfm.mongodb.net/?retryWrites=true&w=majority");
     console.log("MongoDB connection established..!!");
   } catch (error) {
-    console.log("Error While Connecting...!!");
+    console.log("Error While Connecting...!!"+error.message);
   }
 };
 

@@ -1,13 +1,18 @@
-const {
+import {
   addToLikedMovies,
   getLikedMovies,
   removeFromLikedMovies,
-} = require("../controllers/UserController");
+ 
+} from "../controllers/UserController.js";
 
-const router = require("express").Router();
+import express from "express";
+
+const router=express.Router();
 
 router.get("/liked/:email", getLikedMovies);
 router.post("/add", addToLikedMovies);
 router.put("/remove", removeFromLikedMovies);
+// router.post("/signup", signup);
+// router.post("/login", login);
 
-module.exports = router;
+export default router;

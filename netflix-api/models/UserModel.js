@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -10,4 +10,6 @@ const userSchema = new mongoose.Schema({
   likedMovies: Array,
 });
 
-module.exports = mongoose.model("users", userSchema);
+const User = mongoose.model("users", userSchema);
+
+export default User;

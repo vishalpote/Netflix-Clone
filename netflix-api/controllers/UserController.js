@@ -1,6 +1,6 @@
-const User = require("../models/UserModel");
+import User from "../models/UserModel.js";
 
-module.exports.getLikedMovies = async (req, res) => {
+export const getLikedMovies = async (req, res) => {
   try {
     const { email } = req.params;
     const user = await await User.findOne({ email });
@@ -12,7 +12,7 @@ module.exports.getLikedMovies = async (req, res) => {
   }
 };
 
-module.exports.addToLikedMovies = async (req, res) => {
+export const addToLikedMovies = async (req, res) => {
   try {
     const { email, data } = req.body;
     const user = await await User.findOne({ email });
@@ -35,7 +35,7 @@ module.exports.addToLikedMovies = async (req, res) => {
   }
 };
 
-module.exports.removeFromLikedMovies = async (req, res) => {
+export const removeFromLikedMovies = async (req, res) => {
   try {
     const { email, movieId } = req.body;
     const user = await User.findOne({ email });
@@ -59,3 +59,32 @@ module.exports.removeFromLikedMovies = async (req, res) => {
     return res.json({ msg: "Error removing movie to the liked list" });
   }
 };
+
+
+// export const signup=async(req,res)=>{
+//   const {email,password}=req.body;
+//   if(!email || !password){
+//     return res.status(401).json({message:"Please Enter All Required Field..!!"});
+//   }
+//   const userexist=await User.findOne({email})
+
+//   if(userexist){
+//     return res.status(401).json({message:"User Already Exist..!!"});
+//   }
+//   const user=await User.create({email,password});
+//   return res.status(200).json({message:"User created successfully..!!",user});
+// }
+
+// export const login=async(req,res)=>{
+//   const {email,password}=req.body;
+
+//   if(!email || !password){
+//     return res.status(401).json({message:"Please Enter Email And Password..!!"});
+//   }
+
+//   const user=await User.findOne({email})
+//   if(!user){
+//     return res.status(404).json({message:"User Not Found..!!"});
+//   }
+//   return res.status(200).json({message:"Logged In Successfully..!",data:user});
+// }

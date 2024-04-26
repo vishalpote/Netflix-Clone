@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // const password=process.env.PASSWORD;
-const database=process.env.DB;
+const database=process.env.DATABASE;
 export const connection = async () => {
   try {
     await mongoose.connect(database);
